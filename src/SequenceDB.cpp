@@ -1713,7 +1713,7 @@ int SequenceDB::CreateFastaFileUsingBlastdbcmd(string id_file, string fasta_file
 int SequenceDB::CreateFastaFileUsingBlastdbcmdWithTargetOnly(string id_file, string fasta_file)
 {
 	char blastdbcmd[BUF_SIZE_MED];
-	sprintf(blastdbcmd, "%s -db %s -dbtype 'prot' -entry_batch %s -target_only > %s",
+	sprintf(blastdbcmd, "%s -db %s -dbtype 'prot' -entry_batch %s -target_only -outfmt '>gi|%%g|%%i\n%%s' > %s",
 			this->p_options_->blastdbcmd_command_.c_str(),
 			this->p_options_->blast_db_file_name_.c_str(),
 			id_file.c_str(),
